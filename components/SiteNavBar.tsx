@@ -5,7 +5,7 @@ import { useTheme as useNextTheme } from 'next-themes'
 import { Switch, useTheme } from '@nextui-org/react'
 
 
-export default function Sitenavbar(){
+export  function SiteNavBar(){
 
   const { setTheme } = useNextTheme();
   const { isDark } = useTheme();
