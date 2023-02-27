@@ -35,10 +35,10 @@ export default function EmailPasswordSignInForm(
     [loading, signIn]
   );
     return(
-<form className={"w-full"} onSubmit={onSubmit}>
-<Input labelPlaceholder="Email" />
-<Spacer y={1.6} />
-<Input.Password labelPlaceholder="Senha" />
-</form>
+      <form className={"w-full"} onSubmit={onSubmit}>
+        <Input labelPlaceholder="Email" />
+        <Spacer y={1.6} />
+        <Input.Password labelPlaceholder="Senha" />
+      </form>
     );
 }
