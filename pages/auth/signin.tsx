@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { GoogleAuthProvider } from "firebase/auth";
 
 import { useSignInWithProvider } from "../../lib/hooks/useSignInWithProvider";
-import EmailPasswordSignInForm from "../../components/EmailPasswordSignIn";
+import EmailPasswordSignInForm from "../../components/EmailPasswordSignInForm";
 
 const SignIn = () => {
   const [signInWithProvider, signInWithProviderState] = useSignInWithProvider();

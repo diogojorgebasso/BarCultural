@@ -1,11 +1,12 @@
 import { FormEvent, useCallback, useEffect } from "react";
 import { useSignInWithEmailAndPassword } from "../lib/hooks/useSignInWithEmailAndPassword";
+import { Input, Spacer } from '@nextui-org/react';
 
-function EmailPasswordSignInForm(
+export default function EmailPasswordSignInForm(
   props: React.PropsWithChildren<{
     onSignIn: () => void;
   }>
-) {
+){
   const [signIn, state] = useSignInWithEmailAndPassword();
   const loading = state.loading;
   const error = state.error;
@@ -33,4 +34,11 @@ function EmailPasswordSignInForm(
     },
     [loading, signIn]
   );
-
+    return(
+<form className={"w-full"} onSubmit={onSubmit}>
+<Input labelPlaceholder="Email" />
+<Spacer y={1.6} />
+<Input.Password labelPlaceholder="Senha" />
+</form>
+    );
+}
