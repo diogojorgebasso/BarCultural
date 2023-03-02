@@ -1,0 +1,12 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/Perfil": "pages/Perfil.js",
+  "/about": "pages/about.js",
+  "/auth/signin": "pages/auth/signin.js",
+  "/auth/signout": "pages/auth/signout.js",
+  "/contato": "pages/contato.js",
+  "/festas": "pages/festas.js",
+  "/": "pages/index.js"
+}
