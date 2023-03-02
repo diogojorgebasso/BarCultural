@@ -42,7 +42,7 @@ const SignUp = () => {
       <div className="flex flex-col space-y-8">
         <AuthProviderButton />
 
-        <EmailPasswordSignUpForm onSignUp={onSignUp} />
+        <EmailPasswordSignUpForm onSignup={onSignUp} />
       </div>
     </div>
   );
