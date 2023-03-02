@@ -15,8 +15,6 @@ import {
     AuthProvider
 } from 'reactfire';
 
-import configuration from '../configuration';
-
 const lightTheme = createTheme({
     type: 'light',
     theme: {
@@ -39,23 +37,32 @@ const lightTheme = createTheme({
     }
   })
   
-function MyApp({ Component, pageProps }) {
-    const app = initializeApp(configuration.firebase);
+export default function MyApp({ Component, pageProps }) {
+    const app = initializeApp(
+      {
+
+        apiKey: "AIzaSyCVM9NDO_NvQm4cMAUFo4gzQ51Q-nLADAg",
+      
+        authDomain: "bar-cultural-unifei.firebaseapp.com",
+      
+        projectId: "bar-cultural-unifei",
+      
+        storageBucket: "bar-cultural-unifei.appspot.com",
+      
+        messagingSenderId: "346192697346",
+      
+        appId: "1:346192697346:web:9b92780e784cdacaf8ef1b",
+      
+        measurementId: "G-4W16F70233"
+      
+      }
+    );
 
     const persistence = isBrowser()
     ? indexedDBLocalPersistence
     : inMemoryPersistence;
 
     const auth = initializeAuth(app, { persistence });
-
-    // prevent emulator from being
-    // called multiple times on page navigations
-    if (configuration.emulator && !("emulator" in auth.config)) {
-    // we can get the host by combining the local emulator host with the Auth port
-        const host = getAuthEmulatorHost();
-        connectAuthEmulator(auth, host);
-    }
-
 
     return (
     <FirebaseAppProvider firebaseApp={app}>
@@ -76,15 +83,6 @@ function MyApp({ Component, pageProps }) {
         </AuthProvider>
     </FirebaseAppProvider>
   );
-}
-
-export default MyApp;
-
-function getAuthEmulatorHost() {
-    const host = process.env.NEXT_PUBLIC_FIREBASE_EMULATOR_HOST;
-    const port = process.env.NEXT_PUBLIC_FIREBASE_AUTH_EMULATOR_PORT;
-  
-    return ["http://", host, ":", port].join("");
 }
 
 function isBrowser(){

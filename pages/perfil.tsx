@@ -1,9 +1,9 @@
 import React from 'react'
+
 import GuardedPage  from "../components/GuardedPage"
+import { useUser } from 'reactfire'
 
-import {useUser} from 'reactfire'
-
-export default function perfil(){
+export default function Perfil(){
   const { status, data:user } = useUser();
 
   if (status === 'loading') {
