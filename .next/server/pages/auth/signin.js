@@ -28,7 +28,6 @@ _lib_hooks_useSignInWithEmailAndPassword__WEBPACK_IMPORTED_MODULE_2__ = (__webpa
 function EmailPasswordSignInForm(props) {
     const [signIn, state] = (0,_lib_hooks_useSignInWithEmailAndPassword__WEBPACK_IMPORTED_MODULE_2__/* .useSignInWithEmailAndPassword */ .C)();
     const loading = state.loading;
-    const error = state.error;
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
         if (state.success) {
             props.onSignIn();

@@ -5,6 +5,7 @@
 /node_modules
 /.pnp
 .pnp.js
+/.next
 
 # testing
 /coverage
@@ -31,4 +32,3 @@ firebase-debug.log
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-

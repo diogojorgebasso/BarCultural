@@ -15,7 +15,7 @@ import {
     AuthProvider
 } from 'reactfire';
 
-import configuration from '~/configuration';
+import configuration from '../configuration';
 
 const lightTheme = createTheme({
     type: 'light',

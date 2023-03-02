@@ -3,7 +3,7 @@ import GuardedPage  from "../components/GuardedPage"
 
 import {useUser} from 'reactfire'
 
-export default function Perfil(){
+export default function perfil(){
   const { status, data:user } = useUser();
 
   if (status === 'loading') {
@@ -12,7 +12,7 @@ export default function Perfil(){
 
   return (
     <GuardedPage>
-      <p>Bem vindo de volta! {user.displayName}.</p>
+      <p>Bem vindo de volta! {user?.displayName}.</p>
     </GuardedPage>
   )
 }

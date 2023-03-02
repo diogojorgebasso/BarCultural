@@ -9,7 +9,6 @@ export default function EmailPasswordSignInForm(
 ){
   const [signIn, state] = useSignInWithEmailAndPassword();
   const loading = state.loading;
-  const error = state.error;
 
   useEffect(() => {
     if (state.success) {
