@@ -1,7 +1,7 @@
 import React from 'react'
-import GuardedPage  from "../components/GuardedPage"
 
-import {useUser} from 'reactfire'
+import GuardedPage  from "../components/GuardedPage"
+import { useUser } from 'reactfire'
 
 export default function Perfil(){
   const { status, data:user } = useUser();
@@ -12,7 +12,7 @@ export default function Perfil(){
 
   return (
     <GuardedPage>
-      <p>Bem vindo de volta! {user.displayName}.</p>
+      <p>Bem vindo de volta! {user?.displayName}.</p>
     </GuardedPage>
   )
 }
