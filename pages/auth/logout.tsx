@@ -1,19 +1,23 @@
-import React from "react"
+import React, {useCallback} from "react"
+
 import { signOut } from "firebase/auth";
 import { useAuth } from "reactfire";
-import { useRouter } from "next/router";
-import { Text } from "@nextui-org/react";
+
+import { Button, Text } from "@nextui-org/react";
 
 export default function LogOut(){
-  const auth = useAuth();
-  const router = useRouter();
+    const auth = useAuth();
 
-  async () => {
-    await signOut(auth);
-    router.push("/");
-  }
-  return (
-    <Text>Você foi deslogado com sucesso!</Text>
+    const onSignOutRequested = useCallback(() => {
+      return signOut(auth);
+    }, [auth]);
+  
+  
+    return (
+        <>
+        <Text>Tem certeza que deseja se deslogar?</Text>
+        <Button onClick={onSignOutRequested}>Sim!</Button>
+        </>
   )
 };
 

@@ -1,9 +1,10 @@
 import { useCallback, useEffect } from "react";
 import { useRouter } from "next/router";
 import { GoogleAuthProvider } from "firebase/auth";
-
+import { Button } from "@nextui-org/react";
 import { useSignInWithProvider } from "../../lib/hooks/useSignInWithProvider";
 import EmailPasswordSignInForm from "../../components/EmailPasswordSignInForm";
+import {ImGoogle} from 'react-icons/im'
 
 const SignIn = () => {
   const [signInWithProvider, signInWithProviderState] = useSignInWithProvider();
@@ -11,14 +12,14 @@ const SignIn = () => {
 
   const AuthProviderButton = () => {
     return (
-      <button
-        className="rounded-lg p-2 font-bold bg-red-400 text-white"
+      <Button
+      icon={<ImGoogle />}
         onClick={() => {
           signInWithProvider(new GoogleAuthProvider());
         }}
       >
         Login com o Google
-      </button>
+      </Button>
     );
   };
 

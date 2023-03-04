@@ -20,9 +20,7 @@ export  function SiteNavBar(){
     "Perfil",
   ];
     return(
-        <Navbar css={{
-          maxW: "100%"
-        }}
+        <Navbar
        isCompact
        variant="floating"
        shouldHideOnScroll

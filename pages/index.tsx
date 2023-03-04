@@ -1,5 +1,4 @@
-//import Link from 'next/link'
-import { Button, Container, Grid, Row, Col, Text } from '@nextui-org/react';
+import { Button, Container, Link, Row, Col, Text } from '@nextui-org/react';
 import {HiRss} from "react-icons/hi"
 export default function IndexPage() {
   return (
@@ -18,7 +17,7 @@ export default function IndexPage() {
         <Text>
           Somos o Diretório Acadêmico da UNIFEI e buscamos levar as MELHORES festas noturnas do Sul de Minas
         </Text>
-        <Button icon={<HiRss fill="currentColor" />} shadow color="gradient" auto href='/festas'>
+        <Button icon={<HiRss fill="currentColor" />} as={Link} shadow color="gradient" auto href='/festas'>
           Qual a Boa da Semana?
         </Button>
         <Row>

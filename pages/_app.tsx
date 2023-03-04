@@ -3,7 +3,7 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { SiteNavBar } from '../components/SiteNavBar'
 import { initializeApp } from 'firebase/app';
 import { Roboto } from '@next/font/google'
-import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
+//import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
 
 import {
     initializeAuth,
@@ -13,8 +13,7 @@ import {
   
 import {
     FirebaseAppProvider,
-    AuthProvider,
-    AppCheckProvider
+    AuthProvider
 } from 'reactfire';
 
 const lightTheme = createTheme({
@@ -56,11 +55,6 @@ export default function MyApp({ Component, pageProps }) {
         measurementId: "G-4W16F70233"
       }
     );
-
-    const appCheck = initializeAppCheck(app, {
-      provider: new ReCaptchaV3Provider('6LdqCZIjAAAAAEs75exDvAH-Q4Q4XNTNyh-aamn2'),
-      isTokenAutoRefreshEnabled: true,
-    });
   
     const persistence = isBrowser()
     ? indexedDBLocalPersistence
@@ -71,7 +65,6 @@ export default function MyApp({ Component, pageProps }) {
     return (
     <FirebaseAppProvider firebaseApp={app}>
         <AuthProvider sdk={auth}>
-        <AppCheckProvider sdk={appCheck}>
             <NextThemesProvider
             defaultTheme="system"
             attribute="class"
@@ -84,10 +77,9 @@ export default function MyApp({ Component, pageProps }) {
                   <main className={roboto.className}>
                     <SiteNavBar />/
                     <Component {...pageProps} />
-                  </main>
+                    </main>
                 </NextUIProvider>
             </NextThemesProvider>
-            </AppCheckProvider>
         </AuthProvider>
     </FirebaseAppProvider>
   );
