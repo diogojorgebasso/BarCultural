@@ -57,7 +57,7 @@ export const gerarIngresso = functions.firestore
     const result = Buffer.concat(chunks);
     
     const fileRef = bucket.file(
-      docId,
+      uid,
       { metadata: { contentType: 'application/pdf' } }
     );
     fileRef.save(result);
