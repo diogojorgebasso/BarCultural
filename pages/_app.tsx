@@ -2,11 +2,11 @@ import { createTheme, NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { SiteNavBar } from '../components/SiteNavBar'
 import { initializeApp } from 'firebase/app';
+import { useInitPerformance } from 'reactfire';
 
 import {
     initializeAuth,
     indexedDBLocalPersistence,
-    connectAuthEmulator,
     inMemoryPersistence,
 } from 'firebase/auth';
   
@@ -64,6 +64,11 @@ export default function MyApp({ Component, pageProps }) {
 
     const auth = initializeAuth(app, { persistence });
 
+    useInitPerformance(async (firebaseApp) => {
+      const { getPerformance } = await import('firebase/performance');
+      return getPerformance(firebaseApp);
+    });
+  
     return (
     <FirebaseAppProvider firebaseApp={app}>
         <AuthProvider sdk={auth}>
@@ -76,8 +81,8 @@ export default function MyApp({ Component, pageProps }) {
             }}
         >
                 <NextUIProvider>
-                    <SiteNavBar></SiteNavBar> {/* Check here */}
-                        <Component {...pageProps} />
+                    <SiteNavBar />/
+                    <Component {...pageProps} />
                 </NextUIProvider>
             </NextThemesProvider>
         </AuthProvider>
