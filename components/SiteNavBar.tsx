@@ -1,19 +1,24 @@
 import React from 'react';
-import { Navbar, Button, Text } from "@nextui-org/react";
+import { Navbar, Link, Text } from "@nextui-org/react";
 import  LogoBarCultural  from "../public/logo192.png";
 import { useTheme as useNextTheme } from 'next-themes'
 import { Switch, useTheme } from '@nextui-org/react'
 import  Image  from 'next/image';
-import { useUser } from 'reactfire'
+import { useSigninCheck } from 'reactfire'
 import LogInButton from './LogInButton';
 import AvatarButton from './AvatarButton';
 export  function SiteNavBar(){
 
   const { setTheme } = useNextTheme();
   const { isDark } = useTheme();
-  const { status, data:user } = useUser();
-
-
+  const { status, data: signInCheckResult } = useSigninCheck();
+  const collapseItems = [
+    "Festas",
+    "Sócios",
+    "Empresas Parceiras",
+    "Sobre nós",
+    "Perfil",
+  ];
     return(
         <Navbar css={{
           maxW: "100%"
@@ -41,18 +46,31 @@ export  function SiteNavBar(){
         onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
       />
           </Navbar.Item>
-          <Navbar.Content
-          css={{
-            "@xs": {
-              w: "12%",
-              jc: "flex-end",
-            },
-          }}
-        >
-          {}
-          
+
+          {signInCheckResult?.signedIn ? <AvatarButton/> : <LogInButton />}
         </Navbar.Content>
-        </Navbar.Content>
+        <Navbar.Collapse>
+          {collapseItems.map((item, index) => (
+            <Navbar.CollapseItem
+              key={item}
+              activeColor="secondary"
+              css={{
+                color: index === collapseItems.length - 1 ? "$error" : "",
+              }}
+              isActive={index === 2}
+            >
+              <Link
+                color="inherit"
+                css={{
+                  minWidth: "100%",
+                }}
+                href="#"
+              >
+                {item}
+              </Link>
+            </Navbar.CollapseItem>
+          ))}
+        </Navbar.Collapse>
       </Navbar>
     )
 }

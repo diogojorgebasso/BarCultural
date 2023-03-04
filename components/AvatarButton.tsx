@@ -1,9 +1,21 @@
 import React from "react"
-import { Dropdown, Navbar, Avatar } from "@nextui-org/react"
+import { Dropdown, Navbar, Avatar, Text, Link } from "@nextui-org/react"
+import { useUser } from "reactfire";
+import { useRouter } from "next/router";
+
 
 export default function AvatarButton(){
-    
+  const { status, data: user } = useUser();
+  const router = useRouter();
   return (
+    <Navbar.Content
+    css={{
+      "@xs": {
+        w: "12%",
+        jc: "flex-end",
+      },
+    }}
+  >
     <Dropdown placement="bottom-right">
             <Navbar.Item>
               <Dropdown.Trigger>
@@ -17,35 +29,34 @@ export default function AvatarButton(){
               </Dropdown.Trigger>
             </Navbar.Item>
             <Dropdown.Menu
-              aria-label="User menu actions"
+              aria-label="Menu do usuário"
               color="secondary"
-              onAction={(actionKey) => console.log({ actionKey })}
+              onAction={(actionKey) => router.push("/" +  actionKey )}
             >
               <Dropdown.Item key="profile" css={{ height: "$18" }}>
                 <Text b color="inherit" css={{ d: "flex" }}>
-                  Signed in as
+                  Logado como 
                 </Text>
                 <Text b color="inherit" css={{ d: "flex" }}>
-                  zoey@example.com
+                  {user.email}
                 </Text>
               </Dropdown.Item>
               <Dropdown.Item key="settings" withDivider>
-                My Settings
+                Minha Carterinha
               </Dropdown.Item>
-              <Dropdown.Item key="team_settings">Team Settings</Dropdown.Item>
-              <Dropdown.Item key="analytics" withDivider>
-                Analytics
+              <Dropdown.Item key="analytics">
+                Minhas Festas
               </Dropdown.Item>
-              <Dropdown.Item key="system">System</Dropdown.Item>
-              <Dropdown.Item key="configurations">Configurations</Dropdown.Item>
-              <Dropdown.Item key="help_and_feedback" withDivider>
-                Help & Feedback
+              <Dropdown.Item key="suporte" withDivider>
+                Suporte
               </Dropdown.Item>
-              <Dropdown.Item key="logout" withDivider color="error">
-                Log Out
+              <Dropdown.Item key="auth/logout" withDivider color="error">
+                Sair
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          </Navbar.Content>
+          
   )
 };
 
