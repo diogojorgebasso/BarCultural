@@ -16,14 +16,14 @@ export  function SiteNavBar(){
         <Navbar.Brand>
           <LogoBarCultural />
           <Text b color="inherit" hideIn="xs">
-            ACME
+            Bar Cultural
           </Text>
         </Navbar.Brand>
         <Navbar.Content hideIn="xs" variant="highlight-rounded">
-          <Navbar.Link href="#">Festas</Navbar.Link>
-          <Navbar.Link isActive href="#">Filiação</Navbar.Link>
-          <Navbar.Link href="#">Parceiros</Navbar.Link>
-          <Navbar.Link href="#">Sobre nós</Navbar.Link>
+          <Navbar.Link href="festas">Festas</Navbar.Link>
+          <Navbar.Link isActive href="socios">Sócios</Navbar.Link>
+          <Navbar.Link href="parceiros">Parceiros</Navbar.Link>
+          <Navbar.Link href="sobre-nos">Sobre nós</Navbar.Link>
         </Navbar.Content>
         <Navbar.Content>
           <Navbar.Item>
@@ -33,8 +33,8 @@ export  function SiteNavBar(){
       />
           </Navbar.Item>
           <Navbar.Item>
-            <Button auto flat as={Link} href="#">
-              Sign Up
+            <Button auto flat as={Link} href="signup">
+              Cadastro
             </Button>
           </Navbar.Item>
         </Navbar.Content>

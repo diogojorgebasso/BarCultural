@@ -17,7 +17,7 @@ const SignIn = () => {
           signInWithProvider(new GoogleAuthProvider());
         }}
       >
-        Login with Google
+        Login com o Google
       </button>
     );
   };
