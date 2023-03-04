@@ -1,10 +1,11 @@
 //import Link from 'next/link'
-import { Button, Grid, Text } from '@nextui-org/react';
+import { Button, Container, Grid, Row, Col, Text } from '@nextui-org/react';
 import {HiRss} from "react-icons/hi"
 export default function IndexPage() {
   return (
-    <Grid.Container gap={2} justify="center">
-      <Grid xs>
+    <Container>
+      <Row>
+      <Col>
         <Text h1>
           Viva
         </Text>
@@ -20,14 +21,19 @@ export default function IndexPage() {
         <Button icon={<HiRss fill="currentColor" />} shadow color="gradient" auto href='/festas'>
           Qual a Boa da Semana?
         </Button>
-        <Grid.Container gap={2} justify="space-between">
+        <Row>
+          <Col>
           <Text>+70 anos de História</Text>
+          </Col>
+          <Col>
           <Text>6k pessoas/mês</Text>
-        </Grid.Container>
-      </Grid>
-      <Grid xs>
+          </Col>
+        </Row>
+      </Col>
+      <Col >
         <Text>Colagem de fotos</Text>
-      </Grid>
-    </Grid.Container>
+      </Col>
+      </Row>
+    </Container>
   )
 }

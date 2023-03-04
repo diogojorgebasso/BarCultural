@@ -2,12 +2,6 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/about": "pages/about.html",
-  "/auth/signin": "pages/auth/signin.html",
-  "/auth/signout": "pages/auth/signout.html",
-  "/contato": "pages/contato.html",
-  "/festas": "pages/festas.html",
-  "/": "pages/index.html",
-  "/perfil": "pages/perfil.html",
-  "/404": "pages/404.html"
+  "/": "pages/index.js",
+  "/404": "pages/404.js"
 }

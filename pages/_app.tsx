@@ -2,6 +2,7 @@ import { createTheme, NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { SiteNavBar } from '../components/SiteNavBar'
 import { initializeApp } from 'firebase/app';
+import { Roboto } from '@next/font/google'
 
 import {
     initializeAuth,
@@ -25,7 +26,7 @@ const lightTheme = createTheme({
     }
   })
   
-  const darkTheme = createTheme({
+const darkTheme = createTheme({
     type: 'dark',
     theme: {
       colors: {
@@ -36,6 +37,11 @@ const lightTheme = createTheme({
     }
   })
   
+const roboto = Roboto({
+    weight: '400',
+    subsets: ['latin'],
+  })
+
 export default function MyApp({ Component, pageProps }) {
     const app = initializeApp(
       {
@@ -67,8 +73,10 @@ export default function MyApp({ Component, pageProps }) {
             }}
         >
                 <NextUIProvider>
+                  <main className={roboto.className}>
                     <SiteNavBar />/
                     <Component {...pageProps} />
+                  </main>
                 </NextUIProvider>
             </NextThemesProvider>
         </AuthProvider>
