@@ -1,9 +1,8 @@
 import { Grid, Card, Text, Col, Row, Button } from "@nextui-org/react"
 import React from "react"
-import CoverImage from "../public/Semana-Federal.jpg"
 
 export default function Festas(){
-  {/*FEAT: Push data from firebase */}
+  /*FEAT: Push data from firebase */
   return (
     <Grid.Container gap={2} justify="center" >
       <Grid>

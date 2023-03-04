@@ -5,7 +5,122 @@ exports.id = 820;
 exports.ids = [820];
 exports.modules = {
 
-/***/ 7345:
+/***/ 495:
+/***/ ((__unused_webpack_module, exports) => {
+
+var __webpack_unused_export__;
+
+__webpack_unused_export__ = ({
+    value: true
+});
+Object.defineProperty(exports, "Z", ({
+    enumerable: true,
+    get: function() {
+        return _extends;
+    }
+}));
+function extends_() {
+    extends_ = Object.assign || function(target) {
+        for(var i = 1; i < arguments.length; i++){
+            var source = arguments[i];
+            for(var key in source){
+                if (Object.prototype.hasOwnProperty.call(source, key)) {
+                    target[key] = source[key];
+                }
+            }
+        }
+        return target;
+    };
+    return extends_.apply(this, arguments);
+}
+function _extends() {
+    return extends_.apply(this, arguments);
+}
+
+
+/***/ }),
+
+/***/ 648:
+/***/ ((__unused_webpack_module, exports) => {
+
+var __webpack_unused_export__;
+
+__webpack_unused_export__ = ({
+    value: true
+});
+Object.defineProperty(exports, "Z", ({
+    enumerable: true,
+    get: function() {
+        return _interopRequireDefault;
+    }
+}));
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
+
+
+/***/ }),
+
+/***/ 598:
+/***/ ((__unused_webpack_module, exports) => {
+
+var __webpack_unused_export__;
+
+__webpack_unused_export__ = ({
+    value: true
+});
+Object.defineProperty(exports, "Z", ({
+    enumerable: true,
+    get: function() {
+        return _interopRequireWildcard;
+    }
+}));
+function _getRequireWildcardCache(nodeInterop) {
+    if (typeof WeakMap !== "function") return null;
+    var cacheBabelInterop = new WeakMap();
+    var cacheNodeInterop = new WeakMap();
+    return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) {
+        return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+    })(nodeInterop);
+}
+function _interopRequireWildcard(obj, nodeInterop) {
+    if (!nodeInterop && obj && obj.__esModule) {
+        return obj;
+    }
+    if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+        return {
+            default: obj
+        };
+    }
+    var cache = _getRequireWildcardCache(nodeInterop);
+    if (cache && cache.has(obj)) {
+        return cache.get(obj);
+    }
+    var newObj = {};
+    var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+    for(var key in obj){
+        if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+            var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+            if (desc && (desc.get || desc.set)) {
+                Object.defineProperty(newObj, key, desc);
+            } else {
+                newObj[key] = obj[key];
+            }
+        }
+    }
+    newObj.default = obj;
+    if (cache) {
+        cache.set(obj, newObj);
+    }
+    return newObj;
+}
+
+
+/***/ }),
+
+/***/ 345:
 /***/ ((module, exports, __webpack_require__) => {
 
 
@@ -13,9 +128,9 @@ Object.defineProperty(exports, "__esModule", ({
     value: true
 }));
 exports["default"] = void 0;
-var _interop_require_default = (__webpack_require__(2648)/* ["default"] */ .Z);
-var _react = _interop_require_default(__webpack_require__(6689));
-var _head = _interop_require_default(__webpack_require__(3121));
+var _interop_require_default = (__webpack_require__(648)/* ["default"] */ .Z);
+var _react = _interop_require_default(__webpack_require__(689));
+var _head = _interop_require_default(__webpack_require__(121));
 const statusCodes = {
     400: "Bad Request",
     404: "This page could not be found",
@@ -110,7 +225,7 @@ if ((typeof exports.default === "function" || typeof exports.default === "object
 
 /***/ }),
 
-/***/ 3121:
+/***/ 121:
 /***/ ((module, exports, __webpack_require__) => {
 
 
@@ -120,14 +235,14 @@ Object.defineProperty(exports, "__esModule", ({
 }));
 exports.defaultHead = defaultHead;
 exports["default"] = void 0;
-var _extends = (__webpack_require__(6495)/* ["default"] */ .Z);
-var _interop_require_default = (__webpack_require__(2648)/* ["default"] */ .Z);
-var _interop_require_wildcard = (__webpack_require__(1598)/* ["default"] */ .Z);
-var _react = _interop_require_wildcard(__webpack_require__(6689));
-var _sideEffect = _interop_require_default(__webpack_require__(2470));
-var _ampContext = __webpack_require__(3918);
-var _headManagerContext = __webpack_require__(2796);
-var _ampMode = __webpack_require__(5732);
+var _extends = (__webpack_require__(495)/* ["default"] */ .Z);
+var _interop_require_default = (__webpack_require__(648)/* ["default"] */ .Z);
+var _interop_require_wildcard = (__webpack_require__(598)/* ["default"] */ .Z);
+var _react = _interop_require_wildcard(__webpack_require__(689));
+var _sideEffect = _interop_require_default(__webpack_require__(470));
+var _ampContext = __webpack_require__(918);
+var _headManagerContext = __webpack_require__(796);
+var _ampMode = __webpack_require__(732);
 var _warnOnce = __webpack_require__(618);
 function defaultHead(inAmpMode = false) {
     const head = [
@@ -274,28 +389,28 @@ if ((typeof exports.default === "function" || typeof exports.default === "object
 
 /***/ }),
 
-/***/ 3918:
+/***/ 918:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/amp-context.js");
 
 /***/ }),
 
-/***/ 5732:
+/***/ 732:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/amp-mode.js");
 
 /***/ }),
 
-/***/ 2796:
+/***/ 796:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/head-manager-context.js");
 
 /***/ }),
 
-/***/ 2470:
+/***/ 470:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/side-effect.js");
@@ -309,7 +424,7 @@ module.exports = require("next/dist/shared/lib/utils/warn-once.js");
 
 /***/ }),
 
-/***/ 6689:
+/***/ 689:
 /***/ ((module) => {
 
 module.exports = require("react");
@@ -323,7 +438,7 @@ module.exports = require("react");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [210], () => (__webpack_exec__(7345)));
+var __webpack_exports__ = (__webpack_exec__(345));
 module.exports = __webpack_exports__;
 
 })();
