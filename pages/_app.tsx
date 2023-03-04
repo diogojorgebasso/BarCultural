@@ -61,8 +61,7 @@ export default function MyApp({ Component, pageProps }) {
     : inMemoryPersistence;
 
     const auth = initializeAuth(app, { persistence });
-  
-    return (
+      return (
     <FirebaseAppProvider firebaseApp={app}>
         <AuthProvider sdk={auth}>
             <NextThemesProvider
