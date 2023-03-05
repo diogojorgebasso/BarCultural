@@ -1,3 +1,4 @@
+import * as sgMail from "@sendgrid/mail";
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 admin.initializeApp();
@@ -17,7 +18,6 @@ const fontDescriptors = {
 
 const bucket = admin.storage().bucket();
 const path = require("path");
-import * as sgMail from "@sendgrid/mail";
 
 const SENDGRID_API_KEY = functions.config().sendgrid.key;
 const SENDGRID_TEMPLATE_ID = functions.config().sendgrid.template;
