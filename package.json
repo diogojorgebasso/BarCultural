@@ -1,6 +1,8 @@
 {
   "name": "bar_cultural",
+  "description": "Site feito em Next.Js + Firebase com functions para geração e envio dos ingressos para as festas do Bar Cultural",
   "version": "0.1.0",
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@next/font": "^13.2.3",

@@ -18,14 +18,11 @@ const fonts = require("pdfmake/build/vfs_fonts.js");
 const path = require("path");
 
 const sgMail = require("@sendgrid/mail");
-const SENDGRID_API_KEY = functions.config().sendgrid.key;
-const SENDGRID_TEMPLATE_ID = functions.config().sendgrid.template;
-sgMail.setApiKey(SENDGRID_API_KEY);
 
 // trigger based on Stripe finished payment
 export const gerarIngresso = functions.firestore
     .document("ingresso/{docId}")
-    .onWrite((snap, context) => {
+    .onWrite((snap) => {
       const value = snap.data();
       const name = value.name;
       const party = value.party;
@@ -173,8 +170,10 @@ export const createdUserDocument = functions.auth.user()
     });
 
 // assim que o ingresso for upado no storage, mandar email
-export const sendEmail = functions.storage.object()
-    .onFinalize(async (object) => {
+export const sendEmail = functions.runWith({secrets: ["SG_KEY", "SG_TEMPLATE"]})
+    .storage.object().onFinalize(async (object) => {
+      sgMail.setApiKey(process.env.SG_KEY);
+
       const filePath = object.name;
       const fileBucket = object.bucket;
       const fileName = path.basename(filePath);
@@ -183,10 +182,11 @@ export const sendEmail = functions.storage.object()
       const email = snapshot.email;
       const name = snapshot.name;
       const party = snapshot.party;
+
       const msg = {
         to: email,
         from: "divulgacao@dceunifei.com",
-        templateId: SENDGRID_TEMPLATE_ID,
+        templateId: process.env.SG_TEMPLATE,
         dynamic_template_data: {
           subject: "Parabéns pela compra da" + party,
           name: name,
