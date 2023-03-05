@@ -6,9 +6,6 @@
     "@next/font": "^13.2.3",
     "@nextui-org/react": "^1.0.0-beta.12",
     "@stripe/firestore-stripe-payments": "^0.0.6",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
     "firebase": "^9.17.1",
     "next": "latest",
     "next-themes": "^0.2.1",
@@ -16,26 +13,31 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-scripts": "5.0.1",
-    "reactfire": "^4.2.2",
-    "web-vitals": "^2.1.4"
+    "reactfire": "^4.2.2"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.2.3",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
     "@types/node": "^17.0.43",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.5",
+    "jest": "^27.5.1",
     "typescript": "^4.7.3"
   },
   "scripts": {
     "lint": "next lint",
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest --watch"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "next/core-web-vitals"
     ]
   },
   "browserslist": {
