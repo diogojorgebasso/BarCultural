@@ -1,11 +1,10 @@
-import functions = require("firebase-functions");
-import admin = require("firebase-admin");
+const functions = require("firebase-functions");
+const admin = require("firebase-admin");
 admin.initializeApp();
 const db = admin.firestore();
-import {UserProfile} from "firebase/auth";
 
-import Printer = require("pdfmake");
-import fonts = require("pdfmake/build/vfs_fonts.js");
+const Printer = require("pdfmake");
+const fonts = require("pdfmake/build/vfs_fonts.js");
 
 const fontDescriptors = {
   Roboto: {
@@ -17,7 +16,7 @@ const fontDescriptors = {
 };
 
 const bucket = admin.storage().bucket();
-import path = require("path");
+const path = require("path");
 import * as sgMail from "@sendgrid/mail";
 
 const SENDGRID_API_KEY = functions.config().sendgrid.key;
@@ -27,7 +26,7 @@ sgMail.setApiKey(SENDGRID_API_KEY);
 // trigger based on Stripe finished payment
 export const gerarIngresso = functions.firestore
   .document("ingresso/{docId}")
-  .onWrite((snap: any, context: Object) => {
+  .onWrite((snap, context) => {
     const value = snap.data();
     const name = value.name;
     const party = value.party;
@@ -37,7 +36,7 @@ export const gerarIngresso = functions.firestore
     console.log({name, party, uid});
     const printer = new Printer(fontDescriptors);
 
-    const chunks: any[] = [];
+    const chunks = [];
 
     const docDefinition = {
       content: [
@@ -136,7 +135,7 @@ export const gerarIngresso = functions.firestore
 
     const pdfDoc = printer.createPdfKitDocument(docDefinition);
 
-    pdfDoc.on("data", (chunk: any) => {
+    pdfDoc.on("data", (chunk) => {
       chunks.push(chunk);
     });
 
@@ -155,7 +154,7 @@ export const gerarIngresso = functions.firestore
 
 // assim que criar o usuario, adiciona-lo numa colecao do Firestore
 export const createdUserDocument = functions.auth.user()
-  .onCreate((user: ) => {
+  .onCreate((user ) => {
     db.collection("users")
       .doc(user.uid)
       .set(JSON.parse(JSON.stringify(user)));
@@ -163,7 +162,7 @@ export const createdUserDocument = functions.auth.user()
 
 // assim que o ingresso for upado no storage, mandar email
 export const sendEmail = functions.storage.object()
-  .onFinalize(async (object: Storage) => {
+  .onFinalize(async (object) => {
     const filePath = object.name;
     const fileBucket = object.bucket;
     const fileName = path.basename(filePath);
@@ -191,3 +190,5 @@ export const sendEmail = functions.storage.object()
     };
     await sgMail.send(msg);
   });
+
+
