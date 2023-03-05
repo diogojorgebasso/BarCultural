@@ -17,7 +17,7 @@ export default function IndexPage() {
         <Text>
           Somos o Diretório Acadêmico da UNIFEI e buscamos levar as MELHORES festas noturnas do Sul de Minas
         </Text>
-        <Button icon={<HiRss fill="currentColor" />} as={Link} shadow color="gradient" auto href='/festas'>
+        <Button data-testid="botao-festas" icon={<HiRss fill="currentColor" />} as={Link} shadow color="gradient" auto href='/festas'>
           Qual a Boa da Semana?
         </Button>
         <Row>
@@ -29,7 +29,7 @@ export default function IndexPage() {
           </Col>
         </Row>
       </Col>
-      <Col >
+      <Col data-testid="fotos">
         <Text>Colagem de fotos</Text>
       </Col>
       </Row>

@@ -2,7 +2,7 @@ import functions = require("firebase-functions");
 import admin = require("firebase-admin");
 admin.initializeApp();
 const db = admin.firestore();
-import {User} from "firebase/auth";
+import {UserProfile} from "firebase/auth";
 
 import Printer = require("pdfmake");
 import fonts = require("pdfmake/build/vfs_fonts.js");
@@ -155,7 +155,7 @@ export const gerarIngresso = functions.firestore
 
 // assim que criar o usuario, adiciona-lo numa colecao do Firestore
 export const createdUserDocument = functions.auth.user()
-  .onCreate((user: User) => {
+  .onCreate((user: ) => {
     db.collection("users")
       .doc(user.uid)
       .set(JSON.parse(JSON.stringify(user)));
