@@ -11,7 +11,7 @@ export  function SiteNavBar(){
 
   const { setTheme } = useNextTheme();
   const { isDark } = useTheme();
-  const { status, data: signInCheckResult } = useSigninCheck();
+  const { data: signInCheckResult } = useSigninCheck();
   const collapseItems = [
     "Festas",
     "Sócios",
