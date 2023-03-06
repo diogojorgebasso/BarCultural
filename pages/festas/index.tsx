@@ -1,7 +1,7 @@
 import { Grid, Card, Text, Col, Row, Button } from "@nextui-org/react"
 import React from "react"
-import { getProducts, getStripePayments, createCheckoutSession } from "@stripe/firestore-stripe-payments";
 import {useFirebaseApp} from 'reactfire'
+const { getProducts, getStripePayments, createCheckoutSession } = require("@stripe/firestore-stripe-payments");
 
 
 export default async function Festas(){

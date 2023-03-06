@@ -1,32 +1,33 @@
-// functions modules
-const functions = require("firebase-functions");
-const admin = require("firebase-admin");
-admin.initializeApp();
+/* Only allowed import in this ECMA style due to */
 
+// functions modules
+import functions from "firebase-functions";
+import admin from "firebase-admin";
+
+// ticket module
+import Printer from "pdfmake";
+import fonts from "pdfmake/build/vfs_fonts.js";
+
+
+// email module
+import path from "path";
+import sgMail from "@sendgrid/mail";
+
+admin.initializeApp();
 
 // firebase modules
 const db = admin.firestore();
 const bucket = admin.storage().bucket();
 
-
-// ticket module
-const Printer = require("pdfmake");
-const fonts = require("pdfmake/build/vfs_fonts.js");
-
-
-// email module
-const path = require("path");
-
-const sgMail = require("@sendgrid/mail");
-
 // trigger based on Stripe finished payment
 export const gerarIngresso = functions.firestore
-    .document("ingresso/{docId}")
-    .onWrite((snap) => {
-      const value = snap.data();
+    .document("ingresso/{docId}") /* fix the path to the actual buy location */
+    .onUpdate((snap, context) => {
+      const value = snap.after.data();
+      console.log(value);
       const name = value.name;
       const party = value.party;
-      const uid = value.uid;
+      const uid = context.params.docId;
       const cpf = value.cpf;
 
       const fontDescriptors = {
@@ -42,7 +43,6 @@ export const gerarIngresso = functions.firestore
         },
       };
 
-      console.log({name, party, uid});
       const printer = new Printer(fontDescriptors);
 
       const chunks = [];
