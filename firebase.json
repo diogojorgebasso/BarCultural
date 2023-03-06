@@ -1,8 +1,18 @@
 {
-  "functions": {
-    "source": "functions",
-    "predeploy": "npm --prefix functions run build"
-  },
+  "functions": [
+    {
+      "source": "functions",
+      "predeploy": "npm --prefix functions run lint",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ],
+      "runtime": "nodejs16"
+    }
+  ],
   "hosting": {
     "source": ".",
     "ignore": [

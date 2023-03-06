@@ -2,7 +2,7 @@ import { createTheme, NextUIProvider } from '@nextui-org/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { SiteNavBar } from '../components/SiteNavBar'
 import { initializeApp } from 'firebase/app';
-import { Roboto } from '@next/font/google'
+import { Roboto } from 'next/font/google'
 //import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
 
 import {
