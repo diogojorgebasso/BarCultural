@@ -3,8 +3,7 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { SiteNavBar } from '../components/SiteNavBar'
 import { initializeApp } from 'firebase/app';
 import { Roboto } from 'next/font/google'
-//import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
-
+import AppCheckProviderFirebase from '../components/AppCheckProviderFirebase';
 import {
     initializeAuth,
     indexedDBLocalPersistence,
@@ -13,11 +12,11 @@ import {
   
 import {
     FirebaseAppProvider,
-    AuthProvider
+    AuthProvider,
 } from 'reactfire';
 
 const lightTheme = createTheme({
-    type: 'light',
+    type: 'light',  
     theme: {
       colors: {
         primary: '#4ADE7B',
@@ -61,6 +60,7 @@ export default function MyApp({ Component, pageProps }) {
     : inMemoryPersistence;
 
     const auth = initializeAuth(app, { persistence });
+
       return (
     <FirebaseAppProvider firebaseApp={app}>
         <AuthProvider sdk={auth}>
@@ -72,13 +72,15 @@ export default function MyApp({ Component, pageProps }) {
             dark: darkTheme.className
             }}
         >
+          <AppCheckProviderFirebase>
                 <NextUIProvider>
                   <main className={roboto.className}>
                     <SiteNavBar />/
                     <Component {...pageProps} />
                     </main>
                 </NextUIProvider>
-            </NextThemesProvider>
+                </AppCheckProviderFirebase>
+                            </NextThemesProvider>
         </AuthProvider>
     </FirebaseAppProvider>
   );
