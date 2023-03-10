@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 export default function AvatarButton(){
   const { status, data: user } = useUser();
   const router = useRouter();
-  if (status === "loading"){
+  if (status !== "loading"){
     return (
       <Navbar.Content
       css={{
