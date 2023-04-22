@@ -32,7 +32,8 @@ export default function GuardedPage({
     });
 
     // destroy listener on un-mounts
-    return () => listener();
+    listener();
+    return null;
   }, [auth, status, whenSignedOut]);
 
   return {children};

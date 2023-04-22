@@ -9,14 +9,13 @@ import {ImGoogle} from 'react-icons/im'
 const SignIn = () => {
   const [signInWithProvider, signInWithProviderState] = useSignInWithProvider();
   const router = useRouter();
+const handleGoogleClick = useCallback(() => {signInWithProvider(new GoogleAuthProvider())} ,[])
 
   const AuthProviderButton = () => {
     return (
       <Button
       icon={<ImGoogle />}
-        onClick={() => {
-          signInWithProvider(new GoogleAuthProvider());
-        }}
+        onClick={handleGoogleClick}
       >
         Login com o Google
       </Button>

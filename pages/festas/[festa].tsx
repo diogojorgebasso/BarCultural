@@ -4,8 +4,9 @@ import { useRouter } from 'next/router'
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 export async function getStaticProps({ params }) {
+
 	try {
-    const db = getFirestore(app);
+    const firestore = getFirestore(app);
     const docRef = doc(firestore, 'festas', params.festa);
     const docSnap = await getDoc(docRef);
     let data = docSnap.data();
