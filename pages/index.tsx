@@ -25,7 +25,7 @@ export default function IndexPage() {
           <Text>+70 anos de História</Text>
           </Col>
           <Col>
-          <Text>6k pessoas/mês</Text>
+          <Text>6k clientes/mês</Text>
           </Col>
         </Row>
       </Col>
