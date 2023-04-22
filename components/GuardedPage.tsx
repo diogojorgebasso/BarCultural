@@ -35,5 +35,5 @@ export default function GuardedPage({
     return () => listener();
   }, [auth, status, whenSignedOut]);
 
-  return <>{children}</>;
+  return {children};
 }

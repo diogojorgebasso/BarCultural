@@ -1,32 +1,10 @@
 import { Grid, Card, Text, Col, Row, Button } from "@nextui-org/react"
 import React from "react"
-import {useFirebaseApp} from 'reactfire'
-const { getProducts, getStripePayments, createCheckoutSession } = require("@stripe/firestore-stripe-payments");
 
 
 export default async function Festas(){
-
-  const app = useFirebaseApp()
-
-  const payments = getStripePayments(app, {
-    productsCollection: "products",
-    customersCollection: "customers",
-  });
-
-const products = await getProducts(payments, {
-  includePrices: true,
-  activeOnly: true,
-  where: [
-    ["metadata.festa", "==", "true"]
-  ]
-});
-
   return (
     <Grid.Container gap={2} justify="center" >
-      <>
-      {products.map((festa) => 
-      {console.log(festa)}
-      )}
       <Grid>
         <Card isHoverable css={{ w: "100%", h: "400px" }}>
     <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
@@ -94,7 +72,6 @@ const products = await getProducts(payments, {
     </Card.Footer>
         </Card>
       </Grid>
-      </>
     </Grid.Container>
   )
 };

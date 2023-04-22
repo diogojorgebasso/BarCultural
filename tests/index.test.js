@@ -1,6 +1,6 @@
 import IndexPage from "../pages/index";
 import "@testing-library/jest-dom";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 describe("Pagina Principal", () => {
     it("renderiza os textos e imagens", () => {
