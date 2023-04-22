@@ -6,7 +6,6 @@
   "private": true,
   "dependencies": {
     "@nextui-org/react": "^1.0.0-beta.12",
-    "@stripe/firestore-stripe-payments": "^0.0.6",
     "firebase": "^9.17.1",
     "next": "latest",
     "next-themes": "^0.2.1",
