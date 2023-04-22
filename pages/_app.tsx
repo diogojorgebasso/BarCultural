@@ -3,7 +3,7 @@ import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { SiteNavBar } from '../components/SiteNavBar'
 import { initializeApp } from 'firebase/app';
 import { Roboto } from 'next/font/google'
-import AppCheckProviderFirebase from '../components/AppCheckProviderFirebase';
+//import AppCheckProviderFirebase from '../components/AppCheckProviderFirebase';
 
 import {
     initializeAuth,

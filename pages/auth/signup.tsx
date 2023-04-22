@@ -9,14 +9,12 @@ const SignUp = () => {
   const [signInWithProvider, signInWithProviderState] = useSignInWithProvider();
 
   const router = useRouter();
-
+const handleGoogleClick = useCallback(() => {signInWithProvider(new GoogleAuthProvider())} ,[])
   const AuthProviderButton = () => {
     return (
       <button
         className="rounded-lg p-2 font-bold bg-red-400 text-white"
-        onClick={() => {
-          signInWithProvider(new GoogleAuthProvider());
-        }}
+        onClick={handleGoogleClick}
       >
         Cadastre com sua conta Google
       </button>

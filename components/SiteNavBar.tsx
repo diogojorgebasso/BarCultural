@@ -1,15 +1,16 @@
-import React from 'react';
-import { Navbar, Link, Text } from "@nextui-org/react";
+import React, {useCallback} from 'react';
+import { Navbar, Link, Text, Switch, useTheme } from "@nextui-org/react";
 import  LogoBarCultural  from "../public/logo192.png";
 import { useTheme as useNextTheme } from 'next-themes'
-import { Switch, useTheme } from '@nextui-org/react'
 import  Image  from 'next/image';
 import { useSigninCheck } from 'reactfire'
 import LogInButton from './LogInButton';
 import AvatarButton from './AvatarButton';
+
 export  function SiteNavBar(){
 
   const { setTheme } = useNextTheme();
+  const setThemeAction = useCallback((e) => {setTheme(e.target.checked ? 'dark' : 'light')}, [])
   const { isDark } = useTheme();
   const { data: signInCheckResult } = useSigninCheck();
   const collapseItems = [
@@ -41,7 +42,7 @@ export  function SiteNavBar(){
           <Navbar.Item>
           <Switch
         checked={isDark}
-        onChange={(e) => setTheme(e.target.checked ? 'dark' : 'light')}
+        onClick={setThemeAction}
       />
           </Navbar.Item>
 

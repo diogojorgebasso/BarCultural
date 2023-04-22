@@ -1,10 +1,11 @@
-import React from "react"
+import React, {useCallback} from "react"
 import { Dropdown, Navbar, Avatar, Text, Loading } from "@nextui-org/react"
 import { useUser } from "reactfire";
 import { useRouter } from "next/router";
 
 
 export default function AvatarButton(){
+  const handleClick = useCallback((actionKey) => {router.push("/" +  actionKey )},[])
   const { status, data: user } = useUser();
   const router = useRouter();
   if (status !== "loading"){
@@ -32,7 +33,7 @@ export default function AvatarButton(){
               <Dropdown.Menu
                 aria-label="Menu do usuário"
                 color="secondary"
-                onAction={(actionKey) => router.push("/" +  actionKey )}
+                onAction={handleClick}
               >
                 <Dropdown.Item key="profile" css={{ height: "$18" }}>
                   <Text b color="inherit" css={{ d: "flex" }}>
