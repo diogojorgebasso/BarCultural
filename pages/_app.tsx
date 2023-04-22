@@ -4,6 +4,7 @@ import { SiteNavBar } from '../components/SiteNavBar'
 import { initializeApp } from 'firebase/app';
 import { Roboto } from 'next/font/google'
 import AppCheckProviderFirebase from '../components/AppCheckProviderFirebase';
+
 import {
     initializeAuth,
     indexedDBLocalPersistence,
@@ -72,14 +73,12 @@ export default function MyApp({ Component, pageProps }) {
             dark: darkTheme.className
             }}
         >
-          <AppCheckProviderFirebase>
                 <NextUIProvider>
-                  <main className={roboto.className}>
+                  <div className={roboto.className}>
                     <SiteNavBar />/
                     <Component {...pageProps} />
-                    </main>
+                    </div>
                 </NextUIProvider>
-                </AppCheckProviderFirebase>
                             </NextThemesProvider>
         </AuthProvider>
     </FirebaseAppProvider>
