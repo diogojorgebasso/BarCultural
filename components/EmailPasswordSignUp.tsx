@@ -25,8 +25,8 @@ function EmailPasswordSignUpForm(
       }
 
       const data = new FormData(event.currentTarget);
-      const email = data.get(`email`) as string;
-      const password = data.get(`password`) as string;
+      const email = data.get("email") as string;
+      const password = data.get("password") as string;
 
       return signUp(email, password);
     },
