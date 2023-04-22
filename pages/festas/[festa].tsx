@@ -16,7 +16,7 @@ export async function getStaticProps({ params }) {
 					id: params.festa,
 					title: data.fields.title.stringValue,
 					blurb: data.fields.blurb.stringValue,
-					content: data.fields.content.stringValue, 
+					content: data.fields.content.stringValue,
 				},
 			},
 			revalidate: 60,
@@ -35,4 +35,3 @@ export default function Festa({festa}){
     <Text>{festa}</Text>
   )
 };
-

@@ -10,14 +10,14 @@ import {
     indexedDBLocalPersistence,
     inMemoryPersistence,
 } from 'firebase/auth';
-  
+
 import {
     FirebaseAppProvider,
     AuthProvider,
 } from 'reactfire';
 
 const lightTheme = createTheme({
-    type: 'light',  
+    type: 'light',
     theme: {
       colors: {
         primary: '#4ADE7B',
@@ -26,7 +26,7 @@ const lightTheme = createTheme({
       },
     }
   })
-  
+
 const darkTheme = createTheme({
     type: 'dark',
     theme: {
@@ -34,10 +34,10 @@ const darkTheme = createTheme({
         primary: '#4ADE7B',
         secondary: '#F9CB80',
         error: '#FCC5D8'
-    }, 
+    },
     }
   })
-  
+
 const roboto = Roboto({
     weight: '400',
     subsets: ['latin'],
@@ -55,7 +55,7 @@ export default function MyApp({ Component, pageProps }) {
         measurementId: "G-4W16F70233"
       }
     );
-  
+
     const persistence = isBrowser()
     ? indexedDBLocalPersistence
     : inMemoryPersistence;

@@ -37,7 +37,7 @@ export default function AvatarButton(){
               >
                 <Dropdown.Item key="profile" css={{ height: "$18" }}>
                   <Text b color="inherit" css={{ d: "flex" }}>
-                    Logado como 
+                    Logado como
                   </Text>
                   <Text b color="inherit" css={{ d: "flex" }}>
                     {user.email}
@@ -58,13 +58,12 @@ export default function AvatarButton(){
               </Dropdown.Menu>
             </Dropdown>
             </Navbar.Content>
-            
+
     )
   }
   else{
     return (<Loading color="currentColor" size="sm" />
     )
   }
- 
-};
 
+};
