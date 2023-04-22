@@ -15,7 +15,7 @@ export default function IndexPage() {
           Entreterimento 
         </Text>
         <Text>
-          Somos o Diretório Acadêmico da UNIFEI e buscamos levar as MELHORES festas noturnas do Sul de Minas
+          Somos o Diretório Central da UNIFEI e buscamos levar as MELHORES festas noturnas do Sul de Minas
         </Text>
         <Button data-testid="botao-festas" icon={<HiRss fill="currentColor" />} as={Link} shadow color="gradient" auto href='/festas'>
           Qual a Boa da Semana?
@@ -25,7 +25,7 @@ export default function IndexPage() {
           <Text>+70 anos de História</Text>
           </Col>
           <Col>
-          <Text>6k pessoas/mês</Text>
+          <Text>6k clientes/mês</Text>
           </Col>
         </Row>
       </Col>
